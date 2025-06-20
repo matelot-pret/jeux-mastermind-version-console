@@ -1,0 +1,16 @@
+digraph "0_ecole/Q1/labo/labo-java/projet"
+{
+ // LATEX_PDF_SIZE
+  bgcolor="transparent";
+  edge [fontname=Helvetica,fontsize=10,labelfontname=Helvetica,labelfontsize=10];
+  node [fontname=Helvetica,fontsize=10,shape=box,height=0.2,width=0.4];
+  compound=true
+  subgraph clusterdir_6f37d2dc385e2a70c5ddf1f05a856cff {
+    graph [ bgcolor="#edf0f7", pencolor="grey50", label="labo-java", fontname=Helvetica,fontsize=10 style="filled,dashed", URL="dir_6f37d2dc385e2a70c5ddf1f05a856cff.html",tooltip=""]
+  subgraph clusterdir_00a2ca19603a4527e0f0ba36b57af530 {
+    graph [ bgcolor="#edf0f7", pencolor="grey25", label="", fontname=Helvetica,fontsize=10 style="filled,bold", URL="dir_00a2ca19603a4527e0f0ba36b57af530.html",tooltip=""]
+    dir_00a2ca19603a4527e0f0ba36b57af530 [shape=plaintext, label="projet"];
+  dir_3d61728a6d7d31faf3d4c9e5f92220b4 [label="src", fillcolor="#a2b4d6", color="grey25", style="filled", URL="dir_3d61728a6d7d31faf3d4c9e5f92220b4.html",tooltip=""];
+  }
+  }
+}

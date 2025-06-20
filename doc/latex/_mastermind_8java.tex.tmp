@@ -1,0 +1,10 @@
+\doxysection{0\+\_\+ecole/\+Q1/labo/labo-\/java/projet/src/\+Mastermind.java File Reference}
+\label{_mastermind_8java}\index{0\_ecole/Q1/labo/labo-\/java/projet/src/Mastermind.java@{0\_ecole/Q1/labo/labo-\/java/projet/src/Mastermind.java}}
+{\ttfamily import java.\+util.\+Scanner;}\newline
+Include dependency graph for Mastermind.\+java\+:
+% FIG 0
+\doxysubsubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \textbf{ Mastermind}
+\end{DoxyCompactItemize}

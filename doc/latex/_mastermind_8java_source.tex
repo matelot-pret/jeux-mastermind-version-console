@@ -1,0 +1,261 @@
+\doxysection{Mastermind.\+java}
+\label{_mastermind_8java_source}\index{0\_ecole/Q1/labo/labo-\/java/projet/src/Mastermind.java@{0\_ecole/Q1/labo/labo-\/java/projet/src/Mastermind.java}}
+\textbf{ Go to the documentation of this file.}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{keyword}{import}\ java.util.Scanner;}
+\DoxyCodeLine{00002\ }
+\DoxyCodeLine{00003\ \textcolor{keyword}{public}\ \textcolor{keyword}{class\ }Mastermind\{}
+\DoxyCodeLine{00004\ }
+\DoxyCodeLine{00005\ \ \ \ \ }
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00007\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00008\ \textcolor{comment}{*\ pre:\ tab\ existe\ et\ choix\ est\ initialisé,\ tous\ les\ éléments}}
+\DoxyCodeLine{00009\ \textcolor{comment}{*\ du\ tableau\ choix\ sont\ différents.}}
+\DoxyCodeLine{00010\ \textcolor{comment}{*\ post\ :\ tab\ est\ initialisé\ aléatoirement\ avec\ des\ valeurs\ parmi}}
+\DoxyCodeLine{00011\ \textcolor{comment}{*\ les\ valeurs\ du\ tableau\ choix\ et\ rien\ n’empêche\ d’avoir}}
+\DoxyCodeLine{00012\ \textcolor{comment}{*\ plusieurs\ valeurs\ identiques\ dans\ tab}}
+\DoxyCodeLine{00013\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00014\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ genererCodeAvecRepetition(\textcolor{keywordtype}{char}[]\ tab,\ \textcolor{keywordtype}{char}[]\ choix)\{}
+\DoxyCodeLine{00015\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index\ =\ 0;\ index\ <\ tab.length;\ index\ ++)\{}
+\DoxyCodeLine{00016\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ x\ =\ (int)(Math.random()\ *\ (choix.length\ -\/\ 0))\ +\ 0;}
+\DoxyCodeLine{00017\ \ \ \ \ \ \ \ \ \ \ \ \ tab[index]\ =\ choix[x];}
+\DoxyCodeLine{00018\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00019\ \ \ \ \ \}}
+\DoxyCodeLine{00020\ }
+\DoxyCodeLine{00021\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00022\ \textcolor{comment}{*\ pre:\ tab\ existe\ et\ choix\ est\ initialisé,\ tous\ les\ éléments}}
+\DoxyCodeLine{00023\ \textcolor{comment}{*\ du\ tableau\ choix\ sont\ différents\ et}}
+\DoxyCodeLine{00024\ \textcolor{comment}{*\ tab.length\ <=\ choix.length}}
+\DoxyCodeLine{00025\ \textcolor{comment}{*\ post\ :\ tab\ est\ initialisé\ aléatoirement\ avec\ des\ valeurs\ parmi}}
+\DoxyCodeLine{00026\ \textcolor{comment}{*\ les\ valeurs\ du\ tableau\ choix\ et\ tous\ les\ éléments\ de\ tab}}
+\DoxyCodeLine{00027\ \textcolor{comment}{*\ sont\ différents}}
+\DoxyCodeLine{00028\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00029\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ genererCodeSansRepetition\ (\textcolor{keywordtype}{char}[]\ tab,\ \textcolor{keywordtype}{char}[]\ choix)\{}
+\DoxyCodeLine{00030\ \ \ \ \ \ \ \ \ genererCodeAvecRepetition(tab,\ choix);}
+\DoxyCodeLine{00031\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(ifHasRepetition(tab)\ ==\ \textcolor{keyword}{true})\{}
+\DoxyCodeLine{00032\ \ \ \ \ \ \ \ \ \ \ \ \ genererCodeAvecRepetition(tab,\ choix);}
+\DoxyCodeLine{00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00034\ \ \ \ \ \}}
+\DoxyCodeLine{00035\ }
+\DoxyCodeLine{00036\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00037\ \textcolor{comment}{*\ pre:\ tab\ est\ initialisé.}}
+\DoxyCodeLine{00038\ \textcolor{comment}{*\ post\ :\ tab\ est\ inchangée}}
+\DoxyCodeLine{00039\ \textcolor{comment}{*\ résultat:\ est\ true\ si\ tab\ contient\ au\ moins\ une\ répétition\ }}
+\DoxyCodeLine{00040\ \textcolor{comment}{*\ et\ false\ si\ tab\ n'en\ contient\ aucune}}
+\DoxyCodeLine{00041\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00042\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ ifHasRepetition\ (\textcolor{keywordtype}{char}[]\ tab)\{}
+\DoxyCodeLine{00043\ }
+\DoxyCodeLine{00044\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ repetition\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00045\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index1\ =\ 0;\ index1\ <\ tab.length\ \&\&\ repetition\ ==\ \textcolor{keyword}{false};\ index1\ ++)\{}
+\DoxyCodeLine{00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index2\ =\ index1\ +\ 1;\ index2\ <\ tab.length;\ index2\ ++)\{}
+\DoxyCodeLine{00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(tab[index1]\ ==\ tab[index2])\{}
+\DoxyCodeLine{00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ repetition\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00050\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00051\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00052\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ repetition;}
+\DoxyCodeLine{00053\ \ \ \ \ \}}
+\DoxyCodeLine{00054\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00056\ \textcolor{comment}{*\ pre:\ tab\ et\ proposition\ existe\ et\ sont\ initialisé.\ Tous\ les\ éléments\ }}
+\DoxyCodeLine{00057\ \textcolor{comment}{*\ de\ tab\ sont\ différents.\ proposition\ <=\ tab}}
+\DoxyCodeLine{00058\ \textcolor{comment}{*\ post:\ tab\ et\ proposition\ sont\ inchangées}}
+\DoxyCodeLine{00059\ \textcolor{comment}{*\ résultat:\ vérifie\ si\ proposition\ contient\ uniquement\ les\ éléments\ de\ tab\ }}
+\DoxyCodeLine{00060\ \textcolor{comment}{*\ si\ ce\ n'est\ pas\ le\ cas\ afficher\ un\ message\ }}
+\DoxyCodeLine{00061\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ propositionIsValid(\textcolor{keywordtype}{char}\ []\ proposition,\ \textcolor{keywordtype}{char}[]\ tab)\{}
+\DoxyCodeLine{00063\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ foundCharacter\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00064\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ sameCharacter\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00065\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index1\ =\ 0;\ index1\ <\ proposition.length\ \&\&\ sameCharacter\ ==\ \textcolor{keyword}{true};\ index1\ ++)\{}
+\DoxyCodeLine{00066\ \ \ \ \ \ \ \ \ \ \ \ \ foundCharacter\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00067\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index2\ =\ 0;\ index2\ <\ tab.length\ \&\&\ foundCharacter\ ==\ \textcolor{keyword}{false};\ index2\ ++)\{}
+\DoxyCodeLine{00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(proposition[index1]\ ==\ tab[index2])\{}
+\DoxyCodeLine{00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ foundCharacter\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00070\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(foundCharacter\ ==\ \textcolor{keyword}{false})\{}
+\DoxyCodeLine{00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ sameCharacter\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00074\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00075\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00076\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ sameCharacter;}
+\DoxyCodeLine{00077\ \ \ \ \ \}}
+\DoxyCodeLine{00078\ }
+\DoxyCodeLine{00079\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00080\ \textcolor{comment}{*pre:\ secretTab\ et\ proposition\ sont\ initialisé\ et}}
+\DoxyCodeLine{00081\ \textcolor{comment}{*\ codeToDiscover.length\ ==\ proposition.length}}
+\DoxyCodeLine{00082\ \textcolor{comment}{*\ post:\ codeToDiscover\ reste\ inchangées}}
+\DoxyCodeLine{00083\ \textcolor{comment}{*\ résultat:\ affiche\ un\ message\ avec\ le\ nombre\ de\ pions\ bien\ placés\ }}
+\DoxyCodeLine{00084\ \textcolor{comment}{*\ et\ le\ nombre\ de\ pions\ mal\ placés\ }}
+\DoxyCodeLine{00085\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00086\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ compareSecretCodeWithPropositionCode\ (\textcolor{keywordtype}{char}[]\ secretTab,\ \textcolor{keywordtype}{char}[]\ proposition)\{}
+\DoxyCodeLine{00087\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ counterSamePositionAndColor\ =\ 0;}
+\DoxyCodeLine{00088\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index\ =\ 0;\ index\ <\ proposition.length;\ index\ ++)\{}
+\DoxyCodeLine{00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(secretTab[index]\ ==\ proposition[index])\{}
+\DoxyCodeLine{00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counterSamePositionAndColor\ ++;}
+\DoxyCodeLine{00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00092\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00093\ }
+\DoxyCodeLine{00094\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ counterSameColorOnly\ =\ 0;}
+\DoxyCodeLine{00095\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ sameIndex\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00096\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index1\ =\ 0;\ index1\ <\ secretTab.length;\ index1\ ++)\{}
+\DoxyCodeLine{00097\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index2\ =\ 0;\ index2\ <\ proposition.length;\ index2\ ++)\{}
+\DoxyCodeLine{00098\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((secretTab[index1]\ ==\ proposition[index2])\ \&\&\ proposition[index2]\ !=\ \textcolor{charliteral}{'.'})\{}
+\DoxyCodeLine{00099\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}((index2\ !=\ index1)\ \&\&\ (proposition[index1]\ !=\ secretTab[index1])\ \&\&\ (secretTab[index2]\ !=\ proposition[index2]))\{}
+\DoxyCodeLine{00100\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ counterSameColorOnly\ ++;}
+\DoxyCodeLine{00101\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ proposition[index2]\ =\ \textcolor{charliteral}{'.'};}
+\DoxyCodeLine{00102\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00103\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00104\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00105\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00106\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}nombre\ de\ pions\ bien\ placés\ :\ "{}}\ +\ counterSamePositionAndColor);}
+\DoxyCodeLine{00107\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}nombre\ de\ pions\ mal\ placés\ :\ "{}}\ +\ counterSameColorOnly\ +\ \textcolor{stringliteral}{"{}\(\backslash\)n"{}});}
+\DoxyCodeLine{00108\ \ \ \ \ \}}
+\DoxyCodeLine{00109\ }
+\DoxyCodeLine{00110\ \ \ \ \ \textcolor{comment}{/*ajoute\ des\ espaces\ avant\ une\ chaine\ de\ caractère\ pourqu'elle\ soit\ poussé\ vers\ le}}
+\DoxyCodeLine{00111\ \textcolor{comment}{\ \ \ \ \ milieu\ de\ l'écran*/}}
+\DoxyCodeLine{00112\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ tabulation()\{}
+\DoxyCodeLine{00113\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\textcolor{keywordtype}{int}\ space\ =\ 0;\ space\ <\ 30;\ space\ ++)\ \{}
+\DoxyCodeLine{00114\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00115\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00116\ \ \ \ \ \}}
+\DoxyCodeLine{00117\ \ \ \ \ \textcolor{comment}{/*Ajoute\ des\ espaces\ avant\ une\ chaine\ de\ caractère\ afin}}
+\DoxyCodeLine{00118\ \textcolor{comment}{\ \ \ \ de\ nettoyer\ l'écran\ */}}
+\DoxyCodeLine{00119\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ clear()\{}
+\DoxyCodeLine{00120\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ space\ =\ 0;\ space\ <\ 100;\ space\ ++)\{}
+\DoxyCodeLine{00121\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00122\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00123\ \ \ \ \ \}}
+\DoxyCodeLine{00124\ }
+\DoxyCodeLine{00125\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00126\ \textcolor{comment}{*pre:\ secretTab\ et\ proposition\ sont\ initialisé\ et}}
+\DoxyCodeLine{00127\ \textcolor{comment}{*\ codeToDiscover.length\ ==\ proposition.length}}
+\DoxyCodeLine{00128\ \textcolor{comment}{*\ post:\ secretTab\ et\ proposition\ reste\ inchangées}}
+\DoxyCodeLine{00129\ \textcolor{comment}{*\ résultat:\ vérifie\ si\ secretTab\ et\ proposistion\ sont\ }}
+\DoxyCodeLine{00130\ \textcolor{comment}{*\ identique\ et\ affiche\ retourne\ si\ tel\ cas\ sinon\ retourne\ faux}}
+\DoxyCodeLine{00131\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00132\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{boolean}\ userWin(\textcolor{keywordtype}{char}[]\ secretTab,\ \textcolor{keywordtype}{char}[]\ proposition)\{}
+\DoxyCodeLine{00133\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{boolean}\ rightCode\ =\ \textcolor{keyword}{true};}
+\DoxyCodeLine{00134\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index\ =\ 0;\ index\ <\ proposition.length\ \&\&\ rightCode\ ==\ \textcolor{keyword}{true};\ index\ ++)\{}
+\DoxyCodeLine{00135\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(secretTab[index]\ !=\ proposition[index])\{}
+\DoxyCodeLine{00136\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ rightCode\ =\ \textcolor{keyword}{false};}
+\DoxyCodeLine{00137\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00138\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00139\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{return}\ rightCode;}
+\DoxyCodeLine{00140\ \ \ \ \ \}}
+\DoxyCodeLine{00141\ }
+\DoxyCodeLine{00142\ \textcolor{comment}{/*Affiche\ le\ menu\ du\ jeu*/}}
+\DoxyCodeLine{00143\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ menu\ ()\{}
+\DoxyCodeLine{00144\ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00145\ \ \ \ \ \ \ \ \ tabulation();}
+\DoxyCodeLine{00146\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}MASTERMIND\(\backslash\)n"{}});}
+\DoxyCodeLine{00147\ \ \ \ \ \ \ \ \ tabulation();}
+\DoxyCodeLine{00148\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Règles\ du\ jeu\(\backslash\)n"{}});}
+\DoxyCodeLine{00149\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Le\ jeu\ utilise\ les\ lettres\ 'b','g','m','j','r','n','v','o'\ chacune\ représentant\ une\ couleur\(\backslash\)n\ -\/'b'\ bleu\(\backslash\)n\ -\/'g'\ gris\(\backslash\)n\ -\/'m'\ marron\(\backslash\)n\ -\/'j'\ jaune\(\backslash\)n\ .'r'\ rouge\(\backslash\)n\ -\/'n'\ noir\(\backslash\)n\ -\/'v'\ vert\(\backslash\)n\ -\/'o'\ orange\(\backslash\)nUn\ code\ secret\ sera\ générer\ aléatoirement\ à\ partir\ des\ lettres\ correspondantes\ aux\ couleurs.\ \(\backslash\)nVotre\ mission\ si\ vous\ l'acceptez\ est\ de\ découvrir\ le\ code\ secret,\ c'est-\/à-\/dire,\ les\ couleurs\ et\ leur\ position\ dans\ le\ même\ ordre\ que\ le\ code\ secret.\(\backslash\)n\ Vous\ aurez\ droit\ à\ 10\ essais\ maximum.\(\backslash\)n\ -\/\ Si\ une\ ou\ plusieurs\ lettres\ correspondent\ par\ leur\ positions\ et\ couleurs\ à\ des\ lettres\ du\ code\ secret,\ le\ programme\ l'indique\ en\ affichant\ le\ nombre\ de\ pions\ bien\ placés\(\backslash\)n\ -\/\ Si\ une\ ou\ plusieurs\ lettres\ correspondent\ uniquement\ par\ leur\ couleur,\ le\ programme\ l'indique\ en\ affichant\ le\ nombre\ de\ pions\ mal\ placés.\ Par\ exemple,«\ nombre\ de\ pions\ mal\ placés\ :\ 2\ »\(\backslash\)n\ -\/\ Si\ á\ la\ 10ème\ tentative\ vous\ n'avez\ pas\ le\ bon\ code\ vous\ aurez\ perdu.\(\backslash\)n\ -\/\ Si\ vous\ decouvrez\ le\ code\ en\ moins\ de\ 10\ tentatives\ vous\ gagnez.\(\backslash\)n\(\backslash\)n\ -\/\ Dans\ le\ niveau\ facile\ le\ code\ à\ découvrir\ ne\ contiendra\ aucune\ répétition,\ chaque\ couleur\ ne\ sera\ présente\ qu'une\ seule\ fois\ dans\ le\ code\ secret\(\backslash\)n\ -\/\ Dans\ le\ niveau\ difficile\ le\ code\ secret\ peut\ ou\ ne\ pas\ contenir\ de\ répétition\(\backslash\)nLe\ nombre\ de\ lettre\ dans\ le\ code\ secret\ sera\ toujours\ de\ 4.\(\backslash\)nBonne\ chance\ !!!\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00150\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}1-\/\ Commencer\ une\ partie"{}});}
+\DoxyCodeLine{00151\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}0-\/\ Quitter\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00152\ \ \ \ \ \}}
+\DoxyCodeLine{00153\ \ \ \ \ \textcolor{comment}{/*}}
+\DoxyCodeLine{00154\ \textcolor{comment}{*pre:\ array\ est\ initialisé\ }}
+\DoxyCodeLine{00155\ \textcolor{comment}{*\ post:\ array\ reste\ inchangées}}
+\DoxyCodeLine{00156\ \textcolor{comment}{*\ résultat:\ affiche\ les\ éléments\ de\ array}}
+\DoxyCodeLine{00157\ \textcolor{comment}{*/}}
+\DoxyCodeLine{00158\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ displayArray(\textcolor{keywordtype}{char}[]\ array)\{}
+\DoxyCodeLine{00159\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}(\textcolor{keywordtype}{int}\ index\ =\ 0;\ index\ <\ array.length;\ index\ ++)\{}
+\DoxyCodeLine{00160\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(array[index]);}
+\DoxyCodeLine{00161\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00162\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}\ "{}});}
+\DoxyCodeLine{00163\ \ \ \ \ \}}
+\DoxyCodeLine{00164\ }
+\DoxyCodeLine{00165\ \ \ \ \ \textcolor{keyword}{public}\ \textcolor{keyword}{static}\ \textcolor{keywordtype}{void}\ main(String[]args)\{}
+\DoxyCodeLine{00166\ }
+\DoxyCodeLine{00167\ \ \ \ \ \ \ \ \ Scanner\ clavier\ =\ \textcolor{keyword}{new}\ Scanner(System.in);}
+\DoxyCodeLine{00168\ }
+\DoxyCodeLine{00169\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ pawns\ =\ 4;}
+\DoxyCodeLine{00170\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}[]\ colors\ =\ \{\textcolor{charliteral}{'b'},\textcolor{charliteral}{'g'},\textcolor{charliteral}{'m'},\textcolor{charliteral}{'j'},\textcolor{charliteral}{'r'},\textcolor{charliteral}{'n'},\textcolor{charliteral}{'v'},\textcolor{charliteral}{'o'}\};}
+\DoxyCodeLine{00171\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}[]\ secretCode\ =\ \textcolor{keyword}{new}\ \textcolor{keywordtype}{char}[pawns];}
+\DoxyCodeLine{00172\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{char}[]\ propositionCode;}
+\DoxyCodeLine{00173\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ numbreOfProposition\ =\ 0;}
+\DoxyCodeLine{00174\ \ \ \ \ \ \ \ \ menu\ ();}
+\DoxyCodeLine{00175\ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Entrez\ 1\ pour\ commencer\ une\ partie,\ 0\ pour\ quiiter\ le\ jeu.\(\backslash\)n\(\backslash\)nVeuillez\ entrer\ un\ nombre\ :\ "{}});}
+\DoxyCodeLine{00176\ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ userChoice\ =\ clavier.nextInt();}
+\DoxyCodeLine{00177\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(userChoice\ <\ 0\ ||\ userChoice\ >\ 1)\{}
+\DoxyCodeLine{00178\ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00179\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}\ \ \ \ \ \ Entrée\ non\ valide\ !\(\backslash\)n\(\backslash\)nEntrez\ 1\ pour\ commencer\ une\ partie,\ 0\ pour\ quiiter\ le\ jeu.\(\backslash\)n\(\backslash\)nVeuillez\ entrer\ un\ nombre\ valide\ :\ "{}});}
+\DoxyCodeLine{00180\ \ \ \ \ \ \ \ \ \ \ \ \ userChoice\ =\ clavier.nextInt();}
+\DoxyCodeLine{00181\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00182\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(userChoice\ ==\ 0)\{}
+\DoxyCodeLine{00183\ \ \ \ \ \ \ \ \ \ \ \ \ System.exit(0);}
+\DoxyCodeLine{00184\ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00185\ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00186\ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Veuillez\ choisir\ le\ miveau\ de\ difficulté.\ \(\backslash\)n\(\backslash\)nEntrez\ 1\ pour\ facile\ et\ 2\ pour\ difficile\ :"{}});}
+\DoxyCodeLine{00187\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ levelChoice\ =\ clavier.nextInt();}
+\DoxyCodeLine{00188\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(levelChoice\ <\ 1\ ||\ levelChoice\ >\ 2)\{}
+\DoxyCodeLine{00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}\ \ \ \ \ Entrée\ non\ valide.\ \(\backslash\)n\(\backslash\)nVeuillez\ choisir\ le\ miveau\ de\ difficulté.\(\backslash\)n\(\backslash\)nEntrez\ 1\ pour\ facile\ et\ 2\ pour\ difficile\ :\ "{}});}
+\DoxyCodeLine{00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ levelChoice\ =\ clavier.nextInt();}
+\DoxyCodeLine{00192\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00193\ }
+\DoxyCodeLine{00194\ \ \ \ \ \ \ \ \ \ \ \ \ clavier.nextLine();}
+\DoxyCodeLine{00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(levelChoice\ ==\ 1)\{}
+\DoxyCodeLine{00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ attempt\ =\ 1;}
+\DoxyCodeLine{00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tabulation();}
+\DoxyCodeLine{00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}NIVEAU\ FACILE\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Le\ code\ secret\ a\ été\ généré\ !\(\backslash\)nVoici\ les\ lettres\ de\ couleurs\ parmi\ lesquelles\ choisir\ :\ 'b','g','m','j','r','n','v','o'\(\backslash\)n"{}});}
+\DoxyCodeLine{00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genererCodeSansRepetition(secretCode,colors);}
+\DoxyCodeLine{00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}("{}}+\ attempt\ +\ \textcolor{stringliteral}{"{}\ tentative)\ "{}}\ +\ \textcolor{stringliteral}{"{}Entrez\ votre\ proposition\ de\ code"{}})\ ;}
+\DoxyCodeLine{00204\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propositionCode\ =\ clavier.nextLine().replaceAll(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}}).toCharArray()\ ;}
+\DoxyCodeLine{00205\ }
+\DoxyCodeLine{00206\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(propositionIsValid(propositionCode,\ colors)\ ==\ \textcolor{keyword}{false}\ ||\ propositionCode.length\ >\ pawns)\{}
+\DoxyCodeLine{00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Entrez\ votre\ proposition\ de\ code"{}})\ ;}
+\DoxyCodeLine{00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propositionCode\ =\ clavier.nextLine().replaceAll(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}}).toCharArray()\ ;\ \ \ \ }
+\DoxyCodeLine{00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ }
+\DoxyCodeLine{00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compareSecretCodeWithPropositionCode(secretCode,\ propositionCode);}
+\DoxyCodeLine{00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attempt\ ++;}
+\DoxyCodeLine{00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(attempt\ <\ 10\ \ \&\&\ userWin(secretCode,\ propositionCode)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00215\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(userWin(secretCode,\ propositionCode)\ ==\ \textcolor{keyword}{true})\{}
+\DoxyCodeLine{00216\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Vous\ avez\ gagné\ !"{}});}
+\DoxyCodeLine{00217\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Le\ code\ secret\ est\ "{}});}
+\DoxyCodeLine{00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayArray(secretCode);}
+\DoxyCodeLine{00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Vous\ avez\ perdu\ !"{}});}
+\DoxyCodeLine{00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Le\ code\ secret\ est\ "{}});}
+\DoxyCodeLine{00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayArray(secretCode);}
+\DoxyCodeLine{00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00224\ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ attempt\ =\ 1;}
+\DoxyCodeLine{00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ clear();}
+\DoxyCodeLine{00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ tabulation();}
+\DoxyCodeLine{00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}NIVEAU\ DIFFICILE\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n\(\backslash\)n"{}});}
+\DoxyCodeLine{00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Le\ code\ secret\ a\ été\ généré\ !\(\backslash\)nVoici\ les\ lettres\ de\ couleurs\ parmi\ lesquelles\ choisir\ :\ 'b','g','m','j','r','n','v','o'\(\backslash\)n"{}});}
+\DoxyCodeLine{00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ genererCodeAvecRepetition(secretCode,colors);}
+\DoxyCodeLine{00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{do}\{}
+\DoxyCodeLine{00232\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}("{}}+\ attempt\ +\ \textcolor{stringliteral}{"{}\ tentative)\ "{}}\ +\ \textcolor{stringliteral}{"{}Entrez\ votre\ proposition\ de\ code"{}})\ ;}
+\DoxyCodeLine{00233\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propositionCode\ =\ clavier.nextLine().replaceAll(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}}).toCharArray();}
+\DoxyCodeLine{00234\ }
+\DoxyCodeLine{00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(propositionIsValid(propositionCode,\ colors)\ ==\ \textcolor{keyword}{false}\ ||\ propositionCode.length\ >\ pawns)\{}
+\DoxyCodeLine{00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Entrez\ votre\ proposition\ de\ code"{}})\ ;}
+\DoxyCodeLine{00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ propositionCode\ =\ clavier.nextLine().replaceAll(\textcolor{stringliteral}{"{}\ "{}},\ \textcolor{stringliteral}{"{}"{}}).toCharArray()\ ;}
+\DoxyCodeLine{00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ compareSecretCodeWithPropositionCode(secretCode,\ propositionCode);}
+\DoxyCodeLine{00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ attempt\ ++;}
+\DoxyCodeLine{00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{while}(attempt\ <\ 10\ \ \&\&\ userWin(secretCode,\ propositionCode)\ ==\ \textcolor{keyword}{false});}
+\DoxyCodeLine{00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}(userWin(secretCode,\ propositionCode)\ ==\ \textcolor{keyword}{true})\{}
+\DoxyCodeLine{00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Vous\ avez\ gagné\ !"{}});}
+\DoxyCodeLine{00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Le\ code\ secret\ est\ "{}});}
+\DoxyCodeLine{00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayArray(secretCode);}
+\DoxyCodeLine{00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}\textcolor{keywordflow}{else}\{}
+\DoxyCodeLine{00248\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.println(\textcolor{stringliteral}{"{}Vous\ avez\ perdu\ !"{}});}
+\DoxyCodeLine{00249\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ System.out.print(\textcolor{stringliteral}{"{}Le\ code\ secret\ est\ "{}});}
+\DoxyCodeLine{00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ displayArray(secretCode);}
+\DoxyCodeLine{00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00252\ \ \ \ \ \ \ \ \ \ \ \ \ \}\ \ \ }
+\DoxyCodeLine{00253\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{00254\ \ \ \ \ \}}
+\DoxyCodeLine{00255\ \}}
+
+\end{DoxyCode}
